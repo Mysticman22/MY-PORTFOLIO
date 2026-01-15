@@ -1,42 +1,49 @@
+import ContentGrid from "../components/ContentGrid.jsx";
+import MotionSection from "../components/MotionSection.jsx";
+
 function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="max-w-4xl mx-auto px-6 py-24">
-        {/* Identity */}
-        <h1 className="text-4xl font-semibold mb-4">
-          Sarthak Tarde
-        </h1>
+    <main className="bg-black text-white min-h-screen">
+      <ContentGrid>
+        <MotionSection>
+          <section className="space-y-6">
+            <h1 className="text-5xl font-semibold tracking-tight">
+              Sarthak Tarde
+            </h1>
 
-        <p className="text-lg text-neutral-400 max-w-2xl">
-          I build calm, performant web applications focused on real-world
-          problems, clean architecture, and consistent execution.
-        </p>
+            <p className="text-lg text-neutral-400 max-w-2xl">
+              I build immersive, high-signal web products focused on
+              real-world impact, clean architecture, and long-term clarity.
+            </p>
+          </section>
+        </MotionSection>
 
-        {/* Current Focus */}
-        <div className="mt-12 space-y-2 text-neutral-300">
-          <p>→ Currently building developer-focused web products</p>
-          <p>→ Practicing DSA and system thinking daily</p>
-          <p>→ Exploring modern frontend performance patterns</p>
-        </div>
+        <div className="h-24" />
 
-        {/* Live Proof (Placeholder) */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="border border-neutral-800 p-4 rounded-lg">
-            <p className="text-sm text-neutral-500">GitHub</p>
-            <p className="text-xl font-medium">Loading activity…</p>
-          </div>
+        <MotionSection delay={0.15}>
+          <section className="space-y-3 text-neutral-300">
+            <p>→ Designing a content-first developer portfolio</p>
+            <p>→ Practicing DSA and problem-solving daily</p>
+            <p>→ Exploring modern frontend UX & performance patterns</p>
+          </section>
+        </MotionSection>
 
-          <div className="border border-neutral-800 p-4 rounded-lg">
-            <p className="text-sm text-neutral-500">LeetCode</p>
-            <p className="text-xl font-medium">Loading stats…</p>
-          </div>
+        <div className="h-32" />
 
-          <div className="border border-neutral-800 p-4 rounded-lg">
-            <p className="text-sm text-neutral-500">Projects</p>
-            <p className="text-xl font-medium">Loading…</p>
-          </div>
-        </div>
-      </section>
+        <MotionSection delay={0.3}>
+          <section className="space-y-6">
+            <div className="border border-neutral-800 rounded-lg p-6">
+              <p className="text-sm text-neutral-500 mb-1">GitHub</p>
+              <p className="text-xl">Activity loading…</p>
+            </div>
+
+            <div className="border border-neutral-800 rounded-lg p-6">
+              <p className="text-sm text-neutral-500 mb-1">LeetCode</p>
+              <p className="text-xl">Stats loading…</p>
+            </div>
+          </section>
+        </MotionSection>
+      </ContentGrid>
     </main>
   );
 }
