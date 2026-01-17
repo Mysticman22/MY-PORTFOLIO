@@ -9,7 +9,7 @@ function MotionSection({ children }) {
       style={{ y, opacity }}
       transition={{
         duration: 1.4,
-        ease: [0.22, 1, 0.37, 1],
+        ease: [0.23, 1, 0.37, 1],
       }}
     >
       {children}
