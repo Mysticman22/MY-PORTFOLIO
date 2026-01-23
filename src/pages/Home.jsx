@@ -1,51 +1,72 @@
-import ContentGrid from "../components/ContentGrid.jsx";
-import MotionSection from "../components/MotionSection.jsx";
+import { motion } from "framer-motion";
+import FloatingNav from "../components/FloatingNav";
+import TerminalWindow from "../components/TerminalWindow";
+import ProfileWindow from "../components/ProfileWindow";
 
-function Home() {
+export default function Home() {
   return (
-    <main className="bg-black text-white min-h-screen">
-      <ContentGrid>
-        <MotionSection>
-          <section className="space-y-6">
-            <h1 className="text-5xl font-semibold tracking-tight">
-              Sarthak Tarde
+    <>
+      <FloatingNav />
+
+      <section className="relative min-h-screen flex items-center px-6 lg:px-24">
+  <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 w-full">
+
+
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col justify-center"
+          >
+            <span className="w-fit mb-6 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm">
+              Always Ready to Boost ......
+            </span>
+
+            <h1 className="text-6xl lg:text-7xl font-extrabold leading-tight">
+             Heyy !! I’m <br />
+              <span className="font-serif font-semibold">
+                Sarthak <br /> Tarde,
+              </span>
             </h1>
 
-            <p className="text-lg text-neutral-400 max-w-2xl">
-              I build immersive, high-signal web products focused on
-              real-world impact, clean architecture, and long-term clarity.
+            <p className="mt-6 max-w-xl text-lg text-gray-600">
+              I build intelligent systems at the intersection of{" "}
+              <span className="font-medium text-gray-900">
+                AI, data, and scalable web technologies.
+              </span>
             </p>
-          </section>
-        </MotionSection>
 
-        <div className="h-24" />
+            <div className="mt-10 flex gap-4">
+  <button
+    className="px-8 py-3 rounded-full bg-black text-white
+    transition transform hover:scale-105 hover:shadow-xl"
+  >
+    Contact Me __ →
+  </button>
 
-        <MotionSection delay={0.15}>
-          <section className="space-y-3 text-neutral-300">
-            <p>→ Designing a content-first developer portfolio</p>
-            <p>→ Practicing DSA and problem-solving daily</p>
-            <p>→ Exploring modern frontend UX & performance patterns</p>
-          </section>
-        </MotionSection>
+  <a
+  href="Sarthak Tarde Software Enginner Resume .pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-8 py-3 rounded-full border border-gray-300
+             transition hover:bg-white hover:shadow-md"
+>
+  Resume
+</a>
 
-        <div className="h-32" />
+</div>
 
-        <MotionSection delay={0.3}>
-          <section className="space-y-6">
-            <div className="border border-neutral-800 rounded-lg p-6">
-              <p className="text-sm text-neutral-500 mb-1">GitHub</p>
-              <p className="text-xl">Activity loading…</p>
-            </div>
+          </motion.div>
 
-            <div className="border border-neutral-800 rounded-lg p-6">
-              <p className="text-sm text-neutral-500 mb-1">LeetCode</p>
-              <p className="text-xl">Stats loading…</p>
-            </div>
-          </section>
-        </MotionSection>
-      </ContentGrid>
-    </main>
+          {/* RIGHT FLOATING WINDOWS */}
+          <div className="relative hidden lg:block">
+            <TerminalWindow />
+            <ProfileWindow />
+          </div>
+
+        </div>
+      </section>
+    </>
   );
 }
-
-export default Home;
