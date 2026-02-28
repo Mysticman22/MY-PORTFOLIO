@@ -2,16 +2,20 @@ import { motion } from "framer-motion";
 import FloatingNav from "../components/FloatingNav";
 import TerminalWindow from "../components/TerminalWindow";
 import ProfileWindow from "../components/ProfileWindow";
-import RotatingTechStack from "../components/RotatingTechStack";
+import TechStackBoxes from "../components/TechStackBoxes";
+import Projects from "../components/Projects";
+import Timeline from "../components/Timeline";
+import CustomCursor from "../components/CustomCursor";
 
 export default function Home() {
   return (
     <>
+      <CustomCursor />
       {/* Floating Navigation */}
       <FloatingNav />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center px-6 lg:px-24">
+      <section id="home" className="relative min-h-screen flex items-center px-6 lg:px-24">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 w-full">
 
           {/* LEFT CONTENT */}
@@ -69,10 +73,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TECH STACK SECTION */}
-      <section className="px-6 lg:px-24">
-        <RotatingTechStack />
+      {/* JOURNEY SECTION */}
+      <section id="experience" className="px-6 lg:px-24">
+        <Timeline />
       </section>
+
+      {/* SKILLS SECTION */}
+      <section id="skills" className="px-6 lg:px-24">
+        <TechStackBoxes />
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section className="px-6 lg:px-24">
+        <Projects />
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="about" className="px-6 lg:px-24 py-32 flex flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="glass p-12 max-w-2xl w-full"
+        >
+          <h2 className="text-3xl font-serif mb-6">Let's work together</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-8">
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          </p>
+          <a
+            href="mailto:sarthaktarde@gmail.com"
+            className="px-10 py-4 rounded-full bg-black text-white dark:bg-white dark:text-black font-medium
+                       transition transform hover:scale-105"
+          >
+            Say Hello
+          </a>
+        </motion.div>
+      </section>
+
+      <footer className="py-12 border-t border-gray-100 dark:border-white/5 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Sarthak Tarde. Built with passion.
+      </footer>
     </>
   );
 }
